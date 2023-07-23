@@ -563,13 +563,14 @@ console.log("ESERCIZIO 12");
 console.log("---------------------------------");
 
 const newestMovie = movies => {
-  let newestMovieYear = movies[0].Year;
+  let newestMovieYear = parseInt(movies[0].Year);
   let newestMovieTitle = movies[0].Title;
   for (i = 1; i < movies.length; i++) {
     // index from 1 since 0 has already been analyzed
     const currentMovie = movies[i];
-    if (currentMovie.Year > newestMovieYear) {
-      newestMovieYear = currentMovie.Year;
+    const currentMovieYear = parseInt(currentMovie.Year);
+    if (currentMovieYear > newestMovieYear) {
+      newestMovieYear = currentMovieYear;
       newestMovieTitle = currentMovie.Title;
     }
   }
@@ -618,7 +619,7 @@ console.log("ESERCIZIO 15");
 
 console.log("---------------------------------");
 
-const onlyInLastMillennium = movies => movies.filter(movie => movie.Year < 2000);
+const onlyInLastMillennium = movies => movies.filter(movie => parseInt(movie.Year) < 2000);
 
 console.log(onlyInLastMillennium(movies));
 
